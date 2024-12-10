@@ -1,6 +1,6 @@
 pkgname=x1e-uki
 pkgver=0.0.4
-pkgrel=1
+pkgrel=2
 pkgdesc="UKI Installer for Snapdragon X"
 url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
 arch=('aarch64')
@@ -14,7 +14,7 @@ makedepends=('acl' 'cryptsetup' 'docbook-xsl' 'gperf' 'lz4' 'xz' 'pam' 'libelf'
              'bash-completion' 'p11-kit' 'libfido2' 'tpm2-tss' 'rsync' 'bpf'
              'libbpf' 'clang' 'llvm' 'curl' 'gnutls' 'libpwquality' 'qrencode' 'lib32-gcc-libs')
 
-source=("git+https://github.com/anonymix007/systemd#branch=multiple-dt"
+source=("git+https://github.com/anonymix007/systemd#branch=main"
         "git+https://github.com/anonymix007/systemd-stub"
         "https://github.com/anonymix007/systemd-stub/releases/download/v${pkgver}/linuxaa64.efi.stub"
         "x1e.conf"
