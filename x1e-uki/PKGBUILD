@@ -1,6 +1,6 @@
 pkgname=x1e-uki
-pkgver=0.0.3
-pkgrel=4
+pkgver=0.0.4
+pkgrel=0
 pkgdesc="UKI Installer for Snapdragon X"
 url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
 arch=('aarch64')
@@ -16,13 +16,13 @@ makedepends=('acl' 'cryptsetup' 'docbook-xsl' 'gperf' 'lz4' 'xz' 'pam' 'libelf'
 
 source=("git+https://github.com/anonymix007/systemd#branch=multiple-dt"
         "git+https://github.com/anonymix007/systemd-stub"
-        "https://github.com/anonymix007/systemd-stub/releases/download/v0.0.3/linuxaa64.efi.stub"
+        "https://github.com/anonymix007/systemd-stub/releases/download/v${pkgver}/linuxaa64.efi.stub"
         "x1e.conf"
         "99-uki.hook")
 sha256sums=('SKIP'
             'SKIP'
-            'deb1d826bc25ad04649e97e8f03d14aa6f3fccf81afd833b9e0d316747656c79'
-            'd05f807d048c21a21c12f58e3ea24c84aa55608c8ed98dfab13799c303897462'
+            'a8bb867f4e3dff0f48cec83519de4d3786a33b70dee7d93f8839b57304f632a9'
+            '38140a2bc79ce2fa6ff7fa29072dc1d7b897967188a2d0f96912b2acd527ffaa'
             'dfcfa5f09455d691ecd1de1c52366b407068459462971dc4a06a59dc5d2dcd76')
 
 package() {
@@ -33,7 +33,7 @@ package() {
 
   install -d "${pkgdir}/usr/share/hwids"
 
-  for filename in ${srcdir}/systemd-stub/hwids/*.txt; do
+  for filename in ${srcdir}/systemd-stub/json/*.json; do
     install -Dm644 "${filename}" "${pkgdir}/usr/share/hwids/"
   done
 
