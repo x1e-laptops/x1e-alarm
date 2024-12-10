@@ -1,6 +1,6 @@
 pkgname=x1e-uki
 pkgver=0.0.4
-pkgrel=0
+pkgrel=1
 pkgdesc="UKI Installer for Snapdragon X"
 url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
 arch=('aarch64')
@@ -22,7 +22,7 @@ source=("git+https://github.com/anonymix007/systemd#branch=multiple-dt"
 sha256sums=('SKIP'
             'SKIP'
             'a8bb867f4e3dff0f48cec83519de4d3786a33b70dee7d93f8839b57304f632a9'
-            '38140a2bc79ce2fa6ff7fa29072dc1d7b897967188a2d0f96912b2acd527ffaa'
+            '1f2a66bdb02af38816f366744cfe3dd66622cfc6616cf9d1e4090d5c435c2b2e'
             'dfcfa5f09455d691ecd1de1c52366b407068459462971dc4a06a59dc5d2dcd76')
 
 package() {
