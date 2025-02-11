@@ -1,34 +1,22 @@
 pkgname=x1e-uki
-pkgver=0.0.4
-pkgrel=2
-pkgdesc="UKI Installer for Snapdragon X"
+pkgver=1.0.0
+pkgrel=0
+pkgdesc="UKI Configs for Snapdragon X"
 url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
 arch=('aarch64')
 license=('LGPL-2.1-or-later')
-depends=('python-pefile' 'python-pyelftools' 'systemd')
-makedepends=('acl' 'cryptsetup' 'docbook-xsl' 'gperf' 'lz4' 'xz' 'pam' 'libelf'
-             'intltool' 'iptables' 'kmod' 'libarchive' 'libcap' 'libidn2' 'libgcrypt'
-             'libmicrohttpd' 'libxcrypt' 'libxslt' 'util-linux' 'linux-api-headers'
-             'python-jinja' 'python-lxml' 'quota-tools' 'shadow' 'git'
-             'meson' 'libseccomp' 'pcre2' 'audit' 'kexec-tools' 'libxkbcommon'
-             'bash-completion' 'p11-kit' 'libfido2' 'tpm2-tss' 'rsync' 'bpf'
-             'libbpf' 'clang' 'llvm' 'curl' 'gnutls' 'libpwquality' 'qrencode' 'lib32-gcc-libs')
 
-source=("git+https://github.com/anonymix007/systemd#branch=main"
-        "git+https://github.com/anonymix007/systemd-stub"
-        "https://github.com/anonymix007/systemd-stub/releases/download/v${pkgver}/linuxaa64.efi.stub"
-        "x1e.conf"
-        "99-uki.hook")
+source=('git+https://github.com/anonymix007/systemd-stub'
+        'x1e.conf'
+        '99-uki.hook')
+
 sha256sums=('SKIP'
-            'SKIP'
-            'a8bb867f4e3dff0f48cec83519de4d3786a33b70dee7d93f8839b57304f632a9'
-            '1f2a66bdb02af38816f366744cfe3dd66622cfc6616cf9d1e4090d5c435c2b2e'
+            'c6cf09a8eb39d80d8d49f7322390ce8f76efbdee7068a9a65023b4590108177a'
             'dfcfa5f09455d691ecd1de1c52366b407068459462971dc4a06a59dc5d2dcd76')
 
 package() {
-  conflicts=('systemd-ukify')
+  depends=( 'systemd-ukify' )
 
-  install -Dm644 "${srcdir}/systemd/src/ukify/ukify.py" "${pkgdir}/usr/lib/systemd/ukify"
   install -Dm644 "${srcdir}/x1e.conf" "${pkgdir}/etc/x1e-uki.conf"
 
   install -d "${pkgdir}/usr/share/hwids"
@@ -38,7 +26,5 @@ package() {
   done
 
   install -Dm644 "${srcdir}/99-uki.hook" "${pkgdir}/usr/share/libalpm/hooks/99-${pkgname}.hook"
-
-  install -Dm644 "${srcdir}/linuxaa64.efi.stub" "${pkgdir}/usr/lib/systemd/boot/efi/linuxdtbaa64.efi.stub"
 }
 
