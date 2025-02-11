@@ -9,7 +9,7 @@ _srcname=linux-6.14-rc2
 _kernelname=${pkgbase#linux}
 _desc="Linux for Snapdragon X"
 pkgver="6.14.rc2"
-pkgrel=0
+pkgrel=1
 arch=('aarch64')
 url="http://www.kernel.org/"
 license=('GPL2')
@@ -26,7 +26,7 @@ md5sums=('6e78edcc16a57835352f3dccdcbc29ce'
          '5fed4c1a928a8c705773499f18395423'
          '0a5f16bfec6ad982a2f6782724cca8ba'
          '6f99095fbe9f577233b53a83802aab59'
-         '8f5770289108ddab9439d54c47867846'
+         'a1a1d411373cc673df937b4ebf4ad42b'
          '1efda90d007fa8e3efc3140cdb5bea2c')
 
 _dtbs=('arch/arm64/boot/dts/qcom/x1e001de-devkit.dtb'
