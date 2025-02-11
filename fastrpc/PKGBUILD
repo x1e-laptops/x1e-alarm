@@ -1,0 +1,40 @@
+pkgname=fastrpc
+pkgdesc="FastRPC"
+pkgver=0.1.4
+pkgrel=0
+arch=('aarch64')
+options=('!strip')
+url="https://github.com/quic/fastrpc"
+license=('GPL2' 'GPL3' 'custom')
+options=(!strip)
+
+source=("git+https://github.com/quic/fastrpc.git#tag=v${pkgver}"
+        "0001-Add-D_GNU_SOURCE-to-CFLAGS.patch"
+        "0002-Include-sys-time.h-in-fastrpc_common.h.patch")
+sha256sums=('3fc82e66d7739c80dbe11598b61f90c48d2e2938ec6ff0c79476aebad528741d'
+            '2a76184bda26b113255694a6df0247dc139135a14437337df66526515240063b'
+            '2273d3711126f37e13c47ac5101eccc4a403c70b0291f53bc349f552fccf4577')
+
+prepare() {
+  cd fastrpc
+  patch -Np1 -i ../0001-Add-D_GNU_SOURCE-to-CFLAGS.patch
+  patch -Np1 -i ../0002-Include-sys-time.h-in-fastrpc_common.h.patch
+}
+
+build() {
+  cd fastrpc
+  export CC=aarch64-linux-gnu-gcc
+  export CXX=aarch64-linux-gnu-g++
+  export AS=aarch64-linux-gnu-as
+  export LD=aarch64-linux-gnu-ld
+  export RANLIB=aarch64-linux-gnu-ranlib
+  export STRIP=aarch64-linux-gnu-strip
+
+  ./gitcompile --host=aarch64-linux-gnu --prefix="${pkgdir}"
+}
+
+package_fastrpc() {
+  cd fastrpc
+  make install
+}
+

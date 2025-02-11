@@ -1,0 +1,24 @@
+From 781ab2e894d8bbeadd4d09547cd4149faffe7b32 Mon Sep 17 00:00:00 2001
+From: anonymix007 <48598263+anonymix007@users.noreply.github.com>
+Date: Wed, 12 Feb 2025 02:22:18 +0300
+Subject: [PATCH 2/2] Include sys/time.h in fastrpc_common.h
+
+---
+ inc/fastrpc_common.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/inc/fastrpc_common.h b/inc/fastrpc_common.h
+index c07749d..a8faf21 100644
+--- a/inc/fastrpc_common.h
++++ b/inc/fastrpc_common.h
+@@ -8,6 +8,7 @@
+ #include <stdlib.h>
+ #include <errno.h>
+ #include <unistd.h>
++#include <sys/time.h>
+ 
+ /* Header file used by all other modules
+  * will contain the most critical defines
+-- 
+2.48.1
+

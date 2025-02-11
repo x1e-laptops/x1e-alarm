@@ -1,0 +1,25 @@
+From 358855f09ecac456b46fe0093578e7ba9e418eb5 Mon Sep 17 00:00:00 2001
+From: anonymix007 <48598263+anonymix007@users.noreply.github.com>
+Date: Wed, 12 Feb 2025 02:16:03 +0300
+Subject: [PATCH 1/2] Add -D_GNU_SOURCE to CFLAGS
+
+---
+ gitcompile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gitcompile b/gitcompile
+index 0098413..b8a7408 100755
+--- a/gitcompile
++++ b/gitcompile
+@@ -7,7 +7,7 @@ autoheader
+ automake --foreign --copy --add-missing
+ touch depcomp		# for older automake
+ autoconf
+-export CFLAGS='-O2 -Wall -pipe -g'
++export CFLAGS='-O2 -Wall -pipe -g -D_GNU_SOURCE'
+ echo "CFLAGS=$CFLAGS"
+ echo "./configure $@"
+ ./configure $@ || exit 1
+-- 
+2.48.1
+
