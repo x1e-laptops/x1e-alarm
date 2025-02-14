@@ -1,4 +1,4 @@
-From 781ab2e894d8bbeadd4d09547cd4149faffe7b32 Mon Sep 17 00:00:00 2001
+From d96a49f877a8c8378b546a11cd9a77f22a091f4a Mon Sep 17 00:00:00 2001
 From: anonymix007 <48598263+anonymix007@users.noreply.github.com>
 Date: Wed, 12 Feb 2025 02:22:18 +0300
 Subject: [PATCH 2/2] Include sys/time.h in fastrpc_common.h
