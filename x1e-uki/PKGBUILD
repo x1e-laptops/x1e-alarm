@@ -1,5 +1,5 @@
 pkgname=x1e-uki
-pkgver=1.0.0
+pkgver=20250325
 pkgrel=0
 pkgdesc="UKI Configs for Snapdragon X"
 url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
