@@ -1,17 +1,19 @@
 pkgname=x1e-uki
-pkgver=20250325
+pkgver=20250328
 pkgrel=0
 pkgdesc="UKI Configs for Snapdragon X"
 url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
 arch=('aarch64')
 license=('LGPL-2.1-or-later')
 
-source=('git+https://github.com/anonymix007/systemd-stub'
-        'x1e.conf'
-        '99-uki.hook')
+source=("git+https://github.com/anonymix007/systemd-stub"
+        "https://github.com/anonymix007/systemd-stub/releases/download/${pkgver}/linuxaa64.efi.stub"
+        "x1e.conf"
+        "99-uki.hook")
 
 sha256sums=('SKIP'
-            'c6cf09a8eb39d80d8d49f7322390ce8f76efbdee7068a9a65023b4590108177a'
+            '27b7b971cf64f3ab79a3f194127bbc2a708d5cc45383382cc3345cbc7a81e4ab'
+            'ca708622298e483a24eecc9766280375bd46f4217236845b5b81fa249e559ecc'
             'dfcfa5f09455d691ecd1de1c52366b407068459462971dc4a06a59dc5d2dcd76')
 
 package() {
