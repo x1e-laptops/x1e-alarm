@@ -1,29 +1,28 @@
 pkgname=x1e-uki
-pkgver=20250328
+pkgver=20250628
 pkgrel=0
 pkgdesc="UKI Configs for Snapdragon X"
-url='https://uapi-group.org/specifications/specs/unified_kernel_image/'
+url='https://github.com/x1e-laptops/systemd-stub'
 arch=('aarch64')
+_commit="e61cadde17a63a884e20c17c3cb926daf19be082"
 license=('LGPL-2.1-or-later')
 
-source=("git+https://github.com/anonymix007/systemd-stub"
-        "https://github.com/anonymix007/systemd-stub/releases/download/${pkgver}/linuxaa64.efi.stub"
+source=("systemd-stub-$_commit.tar.gz::$url/archive/$_commit.tar.gz"
         "x1e.conf"
         "99-uki.hook")
 
 sha256sums=('SKIP'
-            '27b7b971cf64f3ab79a3f194127bbc2a708d5cc45383382cc3345cbc7a81e4ab'
             'ca708622298e483a24eecc9766280375bd46f4217236845b5b81fa249e559ecc'
             'dfcfa5f09455d691ecd1de1c52366b407068459462971dc4a06a59dc5d2dcd76')
 
 package() {
-  depends=( 'systemd-ukify' )
+  depends=('systemd-ukify')
 
   install -Dm644 "${srcdir}/x1e.conf" "${pkgdir}/etc/x1e-uki.conf"
 
   install -d "${pkgdir}/usr/share/hwids"
 
-  for filename in ${srcdir}/systemd-stub/json/*.json; do
+  for filename in ${srcdir}/systemd-stub-$_commit/json/*.json; do
     install -Dm644 "${filename}" "${pkgdir}/usr/share/hwids/"
   done
 
